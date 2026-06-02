@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -13,20 +13,6 @@ import { ProfileScreen } from "@/screens/ProfileScreen";
 import type { AppScreen, UserMode } from "@/types";
 import { IconCar, IconUser } from "@tabler/icons-react-native";
 import { colors } from "@/theme";
-=======
-import { useState } from "react"
-import { Box, Flex, Text, HStack, Icon } from "@chakra-ui/react"
-import { MobileFrame } from "@/components/MobileFrame"
-import { BottomNav } from "@/components/BottomNav"
-import { HomeScreen } from "@/screens/HomeScreen"
-import { RequestScreen } from "@/screens/RequestScreen"
-import { FindingScreen } from "@/screens/FindingScreen"
-import { ActiveRideScreen } from "@/screens/ActiveRideScreen"
-import { DriverScreen } from "@/screens/DriverScreen"
-import { ProfileScreen } from "@/screens/ProfileScreen"
-import type { AppScreen, UserMode } from "@/types"
-import { IconCar, IconUser } from "@tabler/icons-react"
->>>>>>> origin/main
 
 function App() {
   const [screen, setScreen] = useState<AppScreen>("home");
@@ -54,11 +40,7 @@ function App() {
       case "driver-home":
         return <DriverScreen onNavigate={setScreen} />;
       case "profile":
-<<<<<<< HEAD
         return <ProfileScreen onNavigate={setScreen} mode={mode} />;
-=======
-        return <ProfileScreen onNavigate={setScreen} mode={mode} />
->>>>>>> origin/main
       default:
         return (
           <HomeScreen
@@ -90,21 +72,11 @@ function App() {
               }}
               activeOpacity={0.8}
             >
-<<<<<<< HEAD
               <View style={styles.toggleContent}>
                 <IconUser
                   size={14}
                   color={mode === "passenger" ? colors.brand[500] : colors.brand[400]}
                 />
-=======
-              <HStack gap="1.5">
-                <Icon
-                  color={mode === "passenger" ? "brand.500" : "brand.400"}
-                  boxSize="3.5"
-                >
-                  <IconUser />
-                </Icon>
->>>>>>> origin/main
                 <Text
                   style={[
                     styles.toggleText,
@@ -127,21 +99,11 @@ function App() {
               }}
               activeOpacity={0.8}
             >
-<<<<<<< HEAD
               <View style={styles.toggleContent}>
                 <IconCar
                   size={14}
                   color={mode === "driver" ? colors.brand[500] : colors.brand[400]}
                 />
-=======
-              <HStack gap="1.5">
-                <Icon
-                  color={mode === "driver" ? "brand.500" : "brand.400"}
-                  boxSize="3.5"
-                >
-                  <IconCar />
-                </Icon>
->>>>>>> origin/main
                 <Text
                   style={[
                     styles.toggleText,

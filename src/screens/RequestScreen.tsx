@@ -1,46 +1,28 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {
   StyleSheet,
   View,
   Text,
-<<<<<<< HEAD
   ScrollView,
   TouchableOpacity,
   TextInput,
 } from "react-native";
 import { popularLocations } from "@/data/mockData";
 import type { AppScreen } from "@/types";
-=======
-  HStack,
-  VStack,
-  Icon,
-  Input,
-  Separator,
-} from "@chakra-ui/react"
-import {useState} from "react"
-import {popularLocations} from "@/data/mockData"
-import type {AppScreen} from "@/types"
->>>>>>> origin/main
 import {
   IconArrowLeft,
   IconMapPin,
   IconNavigation,
   IconX,
-<<<<<<< HEAD
   IconClock,
   IconHistory,
 } from "@tabler/icons-react-native";
 import { colors } from "@/theme";
-=======
-  IconClock, IconHistory,
-} from "@tabler/icons-react"
->>>>>>> origin/main
 
 interface RequestScreenProps {
   onNavigate: (screen: AppScreen) => void;
 }
 
-<<<<<<< HEAD
 export function RequestScreen({ onNavigate }: RequestScreenProps) {
   const [pickup, setPickup] = useState("");
   const [destination, setDestination] = useState("");
@@ -53,23 +35,6 @@ export function RequestScreen({ onNavigate }: RequestScreenProps) {
   const usedIds = new Set(
     ([pickupId, destinationId].filter(Boolean) as string[])
   );
-=======
-export function RequestScreen({onNavigate}: RequestScreenProps) {
-  const [pickup, setPickup] = useState("")
-  const [destination, setDestination] = useState("")
-  const [activeField, setActiveField] = useState<"pickup" | "destination">("destination")
-  const [pickupId, setPickupId] = useState<string | null>(null)
-  const [destinationId, setDestinationId] = useState<string | null>(null)
-
-  const usedIds = new Set([pickupId, destinationId].filter(Boolean) as string[])
-
-  const recentDestinations = popularLocations
-    .slice(0, 3)
-    .filter((l) => !usedIds.has(l.id))
-
-  const filteredSuggestions = popularLocations
-    .filter((l) => !usedIds.has(l.id))
->>>>>>> origin/main
 
   const recentDestinations = popularLocations
     .slice(0, 3)
@@ -80,7 +45,6 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
   const canProceed = pickup.length > 2 && destination.length > 2;
 
   const handleSelect = (name: string) => {
-<<<<<<< HEAD
     const loc = popularLocations.find((l) => l.name === name);
 
     if (activeField === "pickup") {
@@ -90,28 +54,7 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
     } else {
       setDestination(name);
       setDestinationId(loc?.id ?? null);
-=======
-    const loc = popularLocations.find((l) => l.name === name)
-
-    if (activeField === "pickup") {
-      setPickup(name)
-      setPickupId(loc?.id ?? null)
-      setActiveField("destination")
-    } else {
-      setDestination(name)
-      setDestinationId(loc?.id ?? null)
->>>>>>> origin/main
     }
-  };
-
-  const clearPickup = () => {
-    setPickup("");
-    setPickupId(null);
-  };
-
-  const clearDestination = () => {
-    setDestination("");
-    setDestinationId(null);
   };
 
   const clearPickup = () => {
@@ -125,7 +68,6 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
   }
 
   return (
-<<<<<<< HEAD
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
@@ -141,53 +83,6 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
 
         {/* Input fields */}
         <View style={styles.inputsContainer}>
-=======
-    <Flex
-      flexDir="column"
-      h="full"
-      bg="white"
-    >
-      {/* Header */}
-      <Box
-        bg="brand.500"
-        pt="10"
-        pb="5"
-        px="5"
-      >
-        <HStack
-          gap="3"
-          mb="4"
-        >
-          <Box
-            cursor="pointer"
-            onClick={() => onNavigate("home")}
-            p="1"
-            rounded="full"
-            _hover={{bg: "brand.400"}}
-            transition="all 0.15s"
-          >
-            <Icon
-              color="white"
-              boxSize="5"
-            >
-              <IconArrowLeft/>
-            </Icon>
-          </Box>
-          <Text
-            color="white"
-            fontSize="lg"
-            fontWeight="bold"
-          >
-            Nova Carona
-          </Text>
-        </HStack>
-
-        {/* Input fields */}
-        <VStack
-          gap="2"
-          align="stretch"
-        >
->>>>>>> origin/main
           {/* Pickup */}
           <View style={styles.inputWrapper}>
             <View style={[styles.dot, { backgroundColor: colors.green[500] }]} />
@@ -196,7 +91,6 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
               placeholder="Seu ponto de partida"
               placeholderTextColor={colors.gray[400]}
               value={pickup}
-<<<<<<< HEAD
               onChangeText={(text) => {
                 setPickup(text);
                 setPickupId(null);
@@ -207,31 +101,10 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
               <TouchableOpacity onPress={clearPickup}>
                 <IconX size={16} color={colors.gray[400]} />
               </TouchableOpacity>
-=======
-              onChange={(e) => {
-                setPickup(e.target.value)
-                setPickupId(null)
-              }}
-              onFocus={() => setActiveField("pickup")}
-              color="gray.800"
-              bg="transparent"
-              _placeholder={{color: "gray.400"}}
-            />
-            {pickup && (
-              <Icon
-                color="gray.400"
-                boxSize="4"
-                cursor="pointer"
-                onClick={clearPickup}
-              >
-                <IconX/>
-              </Icon>
->>>>>>> origin/main
             )}
           </View>
 
           {/* Vertical connector */}
-<<<<<<< HEAD
           <View style={styles.connector} />
 
           {/* Destination */}
@@ -240,31 +113,6 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
               styles.inputWrapper,
               activeField === "destination" && styles.inputActive,
             ]}
-=======
-          <Box
-            pl="4"
-            py="0.5"
-          >
-            <Box
-              w="2px"
-              h="3"
-              bg="gray.200"
-              mx="auto"
-            />
-          </Box>
-
-          {/* Destination */}
-          <Flex
-            align="center"
-            gap="3"
-            bg="white"
-            rounded="xl"
-            px="3"
-            py="2.5"
-            border={activeField === "destination" ? "2px solid" : "2px solid transparent"}
-            borderColor={activeField === "destination" ? "gray.300" : "transparent"}
-            transition="border-color 0.15s"
->>>>>>> origin/main
           >
             <View
               style={[
@@ -277,7 +125,6 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
               placeholder="Para onde você vai?"
               placeholderTextColor={colors.gray[400]}
               value={destination}
-<<<<<<< HEAD
               onChangeText={(text) => {
                 setDestination(text);
                 setDestinationId(null);
@@ -288,33 +135,12 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
               <TouchableOpacity onPress={clearDestination}>
                 <IconX size={16} color={colors.gray[400]} />
               </TouchableOpacity>
-=======
-              onChange={(e) => {
-                setDestination(e.target.value)
-                setDestinationId(null)
-              }}
-              onFocus={() => setActiveField("destination")}
-              color="gray.800"
-              bg="transparent"
-              _placeholder={{color: "gray.400"}}
-            />
-            {destination && (
-              <Icon
-                color="gray.400"
-                boxSize="4"
-                cursor="pointer"
-                onClick={clearDestination}
-              >
-                <IconX/>
-              </Icon>
->>>>>>> origin/main
             )}
           </View>
         </View>
       </View>
 
       {/* Suggestions */}
-<<<<<<< HEAD
       <ScrollView style={styles.suggestionsScroll}>
         {/* Recent */}
         <View style={styles.suggestionSection}>
@@ -376,178 +202,6 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
           ]}
           disabled={!canProceed}
           onPress={() => onNavigate("finding")}
-=======
-      <Box
-        flex="1"
-        overflowY="auto"
-        css={{
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-          "&::-webkit-scrollbar": {width: "0px", height: "0px"},
-        }}
-      >
-        {/* Recent */}
-        <Box
-          px="5"
-          pt="4"
-          pb="2"
-        >
-          <HStack
-            gap="2"
-            mb="3"
-          >
-            <Icon
-              color="gray.400"
-              boxSize="4"
-            >
-              <IconClock/>
-            </Icon>
-            <Text
-              fontSize="xs"
-              fontWeight="semibold"
-              color="gray.500"
-              textTransform="uppercase"
-              letterSpacing="wide"
-            >
-              Recentes
-            </Text>
-          </HStack>
-          <VStack
-            gap="0"
-            align="stretch"
-          >
-            {recentDestinations.map((loc, i) => (
-              <Box key={loc.id}>
-                <Flex
-                  align="center"
-                  gap="3"
-                  py="3"
-                  cursor="pointer"
-                  onClick={() => handleSelect(loc.name)}
-                  _hover={{bg: "gray.50"}}
-                  px="1"
-                  rounded="lg"
-                  transition="bg 0.15s"
-                >
-                  <Box flex="1">
-                    <Text
-                      fontSize="sm"
-                      fontWeight="medium"
-                      color="gray.800"
-                    >
-                      {loc.name}
-                    </Text>
-                    <Text
-                      fontSize="xs"
-                      color="gray.400"
-                    >
-                      {loc.address}
-                    </Text>
-                  </Box>
-                  <Icon
-                    color="gray.300"
-                    boxSize="4"
-                  >
-                    <IconHistory/>
-                  </Icon>
-                </Flex>
-                {i < recentDestinations.length - 1 && (
-                  <Separator borderColor="gray.100"/>
-                )}
-              </Box>
-            ))}
-          </VStack>
-        </Box>
-
-        {/* Live suggestions */}
-        <Box
-          px="5"
-          pb="2"
-        >
-          <HStack
-            gap="2"
-            my="3"
-          >
-            <Icon
-              color="brand.400"
-              boxSize="4"
-            >
-              <IconMapPin/>
-            </Icon>
-            <Text
-              fontSize="xs"
-              fontWeight="semibold"
-              color="gray.500"
-              textTransform="uppercase"
-              letterSpacing="wide"
-            >
-              Sugestões
-            </Text>
-          </HStack>
-          <VStack
-            gap="0"
-            align="stretch"
-          >
-            {filteredSuggestions.map((loc, i) => (
-              <Box key={loc.id}>
-                <Flex
-                  align="center"
-                  gap="3"
-                  py="3"
-                  cursor="pointer"
-                  onClick={() => handleSelect(loc.name)}
-                  _hover={{bg: "gray.50"}}
-                  px="1"
-                  rounded="lg"
-                  transition="bg 0.15s"
-                >
-                  <Box flex="1">
-                    <Text
-                      fontSize="sm"
-                      fontWeight="medium"
-                      color="gray.800"
-                    >
-                      {loc.name}
-                    </Text>
-                    <Text
-                      fontSize="xs"
-                      color="gray.400"
-                    >
-                      {loc.address}
-                    </Text>
-                  </Box>
-                  <Icon
-                    color="gray.300"
-                    boxSize="4"
-                  >
-                    <IconNavigation/>
-                  </Icon>
-                </Flex>
-                {i < filteredSuggestions.length - 1 && <Separator borderColor="gray.100"/>}
-              </Box>
-            ))}
-          </VStack>
-        </Box>
-      </Box>
-
-      {/* Confirm button */}
-      <Box
-        px="5"
-        py="4"
-        borderTop="1px solid"
-        borderColor="gray.100"
-      >
-        <Box
-          bg={canProceed ? "brand.500" : "gray.200"}
-          rounded="xl"
-          py="4"
-          textAlign="center"
-          cursor={canProceed ? "pointer" : "not-allowed"}
-          onClick={() => canProceed && onNavigate("finding")}
-          _hover={canProceed ? {bg: "brand.600"} : {}}
-          transition="all 0.2s"
-          shadow="none"
->>>>>>> origin/main
         >
           <Text
             style={[
@@ -557,7 +211,6 @@ export function RequestScreen({onNavigate}: RequestScreenProps) {
           >
             Buscar
           </Text>
-<<<<<<< HEAD
         </TouchableOpacity>
       </View>
     </View>
@@ -681,10 +334,3 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
-=======
-        </Box>
-      </Box>
-    </Flex>
-  )
-}
->>>>>>> origin/main

@@ -19,11 +19,7 @@ export interface User {
   rating: number
   totalRides: number
   verified: boolean
-<<<<<<< HEAD
   avatarUrl?: any
-=======
-  avatarUrl?: string
->>>>>>> origin/main
 }
 
 export interface Driver {
@@ -38,11 +34,7 @@ export interface Driver {
   plate: string
   verified: boolean
   eta: number
-<<<<<<< HEAD
   avatarUrl?: any
-=======
-  avatarUrl?: string
->>>>>>> origin/main
 }
 
 export interface Passenger {

@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import type { AppScreen, UserMode } from "@/types";
-=======
-import { Box, Flex, Icon, Text } from "@chakra-ui/react"
-import type { AppScreen, UserMode } from "@/types"
->>>>>>> origin/main
 import {
   IconHome,
   IconHomeFilled,
@@ -13,12 +7,8 @@ import {
   IconCarFilled,
   IconUser,
   IconUserFilled,
-<<<<<<< HEAD
 } from "@tabler/icons-react-native";
 import { colors } from "@/theme";
-=======
-} from "@tabler/icons-react"
->>>>>>> origin/main
 
 interface BottomNavProps {
   screen: AppScreen;
@@ -30,20 +20,12 @@ const passengerTabs = [
   { screen: "home" as AppScreen, icon: IconHome, iconActive: IconHomeFilled, label: "Início" },
   { screen: "request" as AppScreen, icon: IconCar, iconActive: IconCarFilled, label: "Carona" },
   { screen: "profile" as AppScreen, icon: IconUser, iconActive: IconUserFilled, label: "Perfil" },
-<<<<<<< HEAD
 ];
-=======
-]
->>>>>>> origin/main
 
 const driverTabs = [
   { screen: "driver-home" as AppScreen, icon: IconCar, iconActive: IconCarFilled, label: "Corridas" },
   { screen: "profile" as AppScreen, icon: IconUser, iconActive: IconUserFilled, label: "Perfil" },
-<<<<<<< HEAD
 ];
-=======
-]
->>>>>>> origin/main
 
 const hiddenScreens: AppScreen[] = ["finding", "active-ride"];
 
@@ -57,13 +39,8 @@ export function BottomNav({ screen, mode, onNavigate }: BottomNavProps) {
     <View style={styles.container}>
       <View style={styles.flexRow}>
         {tabs.map((tab) => {
-<<<<<<< HEAD
           const isActive = activeScreen === tab.screen;
           const TabIcon = isActive ? tab.iconActive : tab.icon;
-=======
-          const isActive = activeScreen === tab.screen
-          const TabIcon = isActive ? tab.iconActive : tab.icon
->>>>>>> origin/main
           return (
             <TouchableOpacity
               key={tab.screen}
@@ -71,33 +48,11 @@ export function BottomNav({ screen, mode, onNavigate }: BottomNavProps) {
               activeOpacity={0.7}
               onPress={() => onNavigate(tab.screen)}
             >
-<<<<<<< HEAD
               {isActive && <View style={styles.activeIndicator} />}
               <TabIcon
                 size={24}
                 color={isActive ? colors.brand[500] : colors.gray[400]}
               />
-=======
-              {isActive && (
-                <Box
-                  position="absolute"
-                  top="0"
-                  left="50%"
-                  transform="translateX(-50%)"
-                  w="20px"
-                  h="2px"
-                  bg="brand.500"
-                  rounded="full"
-                />
-              )}
-              <Icon
-                boxSize="5"
-                color={isActive ? "brand.500" : "gray.400"}
-                transition="color 0.15s"
-              >
-                <TabIcon />
-              </Icon>
->>>>>>> origin/main
               <Text
                 style={[
                   styles.label,
@@ -112,7 +67,6 @@ export function BottomNav({ screen, mode, onNavigate }: BottomNavProps) {
             </TouchableOpacity>
           );
         })}
-<<<<<<< HEAD
       </View>
     </View>
   );
@@ -149,9 +103,3 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
 });
-=======
-      </Flex>
-    </Box>
-  )
-}
->>>>>>> origin/main

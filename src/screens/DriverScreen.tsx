@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -10,15 +10,12 @@ import {
 import { Avatar } from "@/components/ui/avatar";
 import { MapSimulation } from "@/components/MapSimulation";
 import {
-<<<<<<< HEAD
   currentDriverUser,
   driverPendingRequests,
   driverActivePassengers,
 } from "@/data/mockData";
 import type { AppScreen } from "@/types";
 import {
-=======
->>>>>>> origin/main
   IconMapPin,
   IconUsers,
   IconCheck,
@@ -26,12 +23,8 @@ import {
   IconStar,
   IconWallet,
   IconNavigation,
-<<<<<<< HEAD
 } from "@tabler/icons-react-native";
 import { colors } from "@/theme";
-=======
-} from "@tabler/icons-react"
->>>>>>> origin/main
 
 interface DriverScreenProps {
   onNavigate: (screen: AppScreen) => void;
@@ -62,7 +55,6 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
   return (
     <View style={styles.container}>
       {/* Header */}
-<<<<<<< HEAD
       <View style={styles.header}>
         <View style={styles.headerTop}>
           <View>
@@ -85,38 +77,6 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
             styles.toggleCard,
             { backgroundColor: online ? "#064e3b" : colors.brand[600] },
           ]}
-=======
-      <Box bg="brand.500" pt="10" pb="5" px="5">
-        <Flex justify="space-between" align="center" mb="4">
-          <Box>
-            <Text color="brand.300" fontSize="sm" fontWeight="medium">
-              Bom dia,
-            </Text>
-            <Text color="white" fontSize="xl" fontWeight="bold" letterSpacing="tight">
-              {currentDriverUser.name.split(" ")[0]}
-            </Text>
-          </Box>
-          <HStack gap="3">
-            <Avatar
-              size="sm"
-              name={currentDriverUser.name}
-              src={currentDriverUser.avatarUrl}
-              bg="brand.400"
-              color="white"
-              fontWeight="bold"
-            />
-          </HStack>
-        </Flex>
-
-        {/* Online toggle */}
-        <Flex
-          bg={online ? "green.900" : "brand.600"}
-          rounded="xl"
-          p="3"
-          align="center"
-          gap="3"
-          transition="all 0.3s"
->>>>>>> origin/main
         >
           <View
             style={[
@@ -156,7 +116,6 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
         />
       </View>
 
-<<<<<<< HEAD
       <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
         {/* Earnings today */}
         <View style={styles.earningsRow}>
@@ -187,93 +146,18 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
             <View style={styles.sectionHeader}>
               <IconUsers size={16} color={colors.brand[400]} />
               <Text style={styles.sectionTitle}>
-=======
-      {/* Content */}
-      <Box
-        flex="1"
-        overflowY="auto"
-        px="5"
-        py="4"
-        css={{
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-          "&::-webkit-scrollbar": { width: "0px", height: "0px" },
-        }}
-      >
-        {/* Earnings today */}
-        <HStack gap="3" mb="5">
-          <Box
-            flex="1"
-            bg="brand.50"
-            rounded="xl"
-            p="3"
-          >
-            <Text fontSize="xs" color="gray.500" mb="0.5">Hoje</Text>
-            <Text fontSize="lg" fontWeight="bold" color="brand.600">
-              R$ {earnings.today.toFixed(2).replace(".", ",")}
-            </Text>
-          </Box>
-          <Box
-            flex="1"
-            bg="gray.50"
-            rounded="xl"
-            p="3"
-          >
-            <Text fontSize="xs" color="gray.500" mb="0.5">Semana</Text>
-            <Text fontSize="lg" fontWeight="bold" color="gray.700">
-              R$ {earnings.week.toFixed(2).replace(".", ",")}
-            </Text>
-          </Box>
-          <Box
-            bg="gray.50"
-            rounded="xl"
-            p="3"
-          >
-            <Text fontSize="xs" color="gray.500" mb="0.5">Corridas</Text>
-            <HStack gap="1" align="center">
-              <Icon color="brand.400" boxSize="4">
-                <IconWallet />
-              </Icon>
-              <Text fontSize="lg" fontWeight="bold" color="gray.700">
-                {earnings.rides}
-              </Text>
-            </HStack>
-          </Box>
-        </HStack>
-
-        {/* Active trip passengers */}
-        {phase === "trip" && activePassengers.length > 0 && (
-          <Box mb="5">
-            <HStack gap="2" mb="3">
-              <Icon color="brand.400" boxSize="4">
-                <IconUsers />
-              </Icon>
-              <Text fontSize="xs" fontWeight="bold" color="gray.500" textTransform="uppercase" letterSpacing="wide">
->>>>>>> origin/main
                 No carro ({activePassengers.length})
               </Text>
             </View>
             <View style={styles.passengerList}>
               {activePassengers.map((p) => (
-<<<<<<< HEAD
                 <View key={p.id} style={styles.activePassengerItem}>
-=======
-                <Flex
-                  key={p.id}
-                  align="center"
-                  gap="3"
-                  bg="brand.50"
-                  rounded="xl"
-                  p="3"
-                >
->>>>>>> origin/main
                   <Avatar
                     size="sm"
                     name={p.name}
                     src={p.avatarUrl}
                     bg={colors.brand[500]}
                   />
-<<<<<<< HEAD
                   <View style={styles.passengerInfo}>
                     <Text style={styles.passengerName}>{p.name}</Text>
                     <View style={styles.passengerDestRow}>
@@ -285,25 +169,6 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
                   </View>
                   <IconNavigation size={16} color={colors.brand[400]} />
                 </View>
-=======
-                  <Box flex="1">
-                    <Text fontSize="sm" fontWeight="semibold" color="gray.800">
-                      {p.name}
-                    </Text>
-                    <HStack gap="1">
-                      <Icon color="gray.400" boxSize="3">
-                        <IconMapPin />
-                      </Icon>
-                      <Text fontSize="xs" color="gray.500" truncate>
-                        {p.destination}
-                      </Text>
-                    </HStack>
-                  </Box>
-                  <Icon color="brand.400" boxSize="4">
-                    <IconNavigation />
-                  </Icon>
-                </Flex>
->>>>>>> origin/main
               ))}
             </View>
           </View>
@@ -319,43 +184,19 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
 
             <View style={styles.requestsList}>
               {requests.map((req) => (
-<<<<<<< HEAD
                 <View key={req.id} style={styles.requestCard}>
                   <View style={styles.requestHeader}>
-=======
-                <Box
-                  key={req.id}
-                  bg="white"
-                  border="1px solid"
-                  borderColor="gray.200"
-                  rounded="2xl"
-                  p="4"
-                >
-                  <Flex align="center" gap="3" mb="3">
->>>>>>> origin/main
                     <Avatar
                       size="md"
                       name={req.passenger.name}
                       src={req.passenger.avatarUrl}
                       bg={colors.brand[200]}
                     />
-<<<<<<< HEAD
                     <View style={styles.requestUserInfo}>
                       <Text style={styles.requestUserName}>{req.passenger.name}</Text>
                       <View style={styles.requestRatingRow}>
                         <IconStar size={12} color="#facc15" />
                         <Text style={styles.requestRatingText}>
-=======
-                    <Box flex="1">
-                      <Text fontWeight="semibold" color="gray.800" fontSize="sm">
-                        {req.passenger.name}
-                      </Text>
-                      <HStack gap="1">
-                        <Icon color="yellow.400" boxSize="3">
-                          <IconStar />
-                        </Icon>
-                        <Text fontSize="xs" color="gray.500">
->>>>>>> origin/main
                           4.8 · {req.distance}
                         </Text>
                       </View>
@@ -382,7 +223,6 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
                     </View>
                   </View>
 
-<<<<<<< HEAD
                   <View style={styles.requestActions}>
                     <TouchableOpacity
                       style={styles.rejectButton}
@@ -400,51 +240,6 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
                     </TouchableOpacity>
                   </View>
                 </View>
-=======
-                  <HStack gap="2">
-                    <Box
-                      flex="1"
-                      bg="red.50"
-                      rounded="xl"
-                      py="2.5"
-                      textAlign="center"
-                      cursor="pointer"
-                      onClick={() => handleReject(req.id)}
-                      _hover={{ bg: "red.100" }}
-                      transition="all 0.15s"
-                    >
-                      <HStack justify="center" gap="1.5">
-                        <Icon color="red.500" boxSize="4">
-                          <IconX />
-                        </Icon>
-                        <Text fontSize="sm" fontWeight="semibold" color="red.500">
-                          Recusar
-                        </Text>
-                      </HStack>
-                    </Box>
-                    <Box
-                      flex="1"
-                      bg="brand.500"
-                      rounded="xl"
-                      py="2.5"
-                      textAlign="center"
-                      cursor="pointer"
-                      onClick={() => handleAccept(req.id)}
-                      _hover={{ bg: "brand.600" }}
-                      transition="all 0.15s"
-                    >
-                      <HStack justify="center" gap="1.5">
-                        <Icon color="white" boxSize="4">
-                          <IconCheck />
-                        </Icon>
-                        <Text fontSize="sm" fontWeight="semibold" color="white">
-                          Aceitar
-                        </Text>
-                      </HStack>
-                    </Box>
-                  </HStack>
-                </Box>
->>>>>>> origin/main
               ))}
             </View>
           </View>
@@ -452,7 +247,6 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
 
         {/* Empty state when offline */}
         {!online && (
-<<<<<<< HEAD
           <View style={styles.emptyState}>
             <View style={styles.emptyIconContainer}>
               <IconNavigation size={32} color={colors.gray[400]} />
@@ -460,19 +254,6 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
             <View style={styles.emptyTextContainer}>
               <Text style={styles.emptyTitle}>Você está offline</Text>
               <Text style={styles.emptySub}>
-=======
-          <VStack gap="3" py="8" align="center">
-            <Box bg="gray.100" rounded="full" p="5">
-              <Icon color="gray.400" boxSize="8">
-                <IconNavigation />
-              </Icon>
-            </Box>
-            <VStack gap="1" textAlign="center">
-              <Text fontWeight="semibold" color="gray.600">
-                Você está offline
-              </Text>
-              <Text fontSize="sm" color="gray.400">
->>>>>>> origin/main
                 Ative o modo online para receber solicitações de carona
               </Text>
             </View>
@@ -481,7 +262,6 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
 
         {/* Empty state - no requests */}
         {online && requests.length === 0 && phase === "idle" && (
-<<<<<<< HEAD
           <View style={styles.emptyState}>
             <View style={[styles.emptyIconContainer, { backgroundColor: colors.brand[50] }]}>
               <IconUsers size={32} color={colors.brand[400]} />
@@ -489,19 +269,6 @@ export function DriverScreen({ onNavigate }: DriverScreenProps) {
             <View style={styles.emptyTextContainer}>
               <Text style={styles.emptyTitle}>Aguardando solicitações</Text>
               <Text style={styles.emptySub}>
-=======
-          <VStack gap="3" py="6" align="center">
-            <Box bg="brand.50" rounded="full" p="5">
-              <Icon color="brand.400" boxSize="8">
-                <IconUsers />
-              </Icon>
-            </Box>
-            <VStack gap="1" textAlign="center">
-              <Text fontWeight="semibold" color="gray.700">
-                Aguardando solicitações
-              </Text>
-              <Text fontSize="sm" color="gray.400">
->>>>>>> origin/main
                 Você receberá notificações quando houver passageiros próximos
               </Text>
             </View>

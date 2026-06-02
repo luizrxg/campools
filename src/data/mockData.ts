@@ -16,11 +16,7 @@ export const currentUser: User = {
   rating: 4.9,
   totalRides: 47,
   verified: true,
-<<<<<<< HEAD
   avatarUrl: require("../assets/user.jpg"),
-=======
-  avatarUrl: "/user.jpg",
->>>>>>> origin/main
 }
 
 export const currentDriverUser: User = {
@@ -32,11 +28,7 @@ export const currentDriverUser: User = {
   rating: 4.8,
   totalRides: 120,
   verified: true,
-<<<<<<< HEAD
   avatarUrl: require("../assets/driver.jpg"),
-=======
-  avatarUrl: "/driver.jpg",
->>>>>>> origin/main
 }
 
 export const popularLocations: Location[] = [

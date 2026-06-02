@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect, useState, useRef } from "react";
+import  { useEffect, useState, useRef } from "react";
 import {
   StyleSheet,
   View,
@@ -14,15 +13,6 @@ import { mockDriver, mockDriver2 } from "@/data/mockData";
 import type { AppScreen } from "@/types";
 import { IconX, IconStar, IconCar } from "@tabler/icons-react-native";
 import { colors } from "@/theme";
-=======
-import { Box, Flex, Text, HStack, VStack, Icon } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
-import { Avatar } from "@/components/ui/avatar"
-import { MapSimulation } from "@/components/MapSimulation"
-import { mockDriver, mockDriver2 } from "@/data/mockData"
-import type { AppScreen } from "@/types"
-import { IconX, IconStar, IconCar } from "@tabler/icons-react"
->>>>>>> origin/main
 
 interface FindingScreenProps {
   onNavigate: (screen: AppScreen) => void;
@@ -87,7 +77,6 @@ export function FindingScreen({ onNavigate }: FindingScreenProps) {
         <MapSimulation variant="finding" height={260} />
 
         {/* Cancel button */}
-<<<<<<< HEAD
         <TouchableOpacity
           style={styles.cancelIconButton}
           onPress={() => onNavigate("home")}
@@ -95,30 +84,12 @@ export function FindingScreen({ onNavigate }: FindingScreenProps) {
           <IconX size={20} color={colors.gray[600]} />
         </TouchableOpacity>
       </View>
-=======
-        <Box
-          position="absolute"
-          top="4"
-          right="4"
-          bg="white"
-          rounded="full"
-          p="2"
-          cursor="pointer"
-          onClick={() => onNavigate("home")}
-        >
-          <Icon color="gray.600" boxSize="5">
-            <IconX />
-          </Icon>
-        </Box>
-      </Box>
->>>>>>> origin/main
 
       {/* Content */}
       <View style={styles.content}>
         {phase === "searching" ? (
           <View style={styles.searchingView}>
             {/* Spinner */}
-<<<<<<< HEAD
             <View style={styles.spinnerContainer}>
               <View style={styles.spinnerBackground} />
               <Animated.View
@@ -131,35 +102,6 @@ export function FindingScreen({ onNavigate }: FindingScreenProps) {
                 <IconCar size={28} color={colors.brand[500]} />
               </View>
             </View>
-=======
-            <Box position="relative" w="80px" h="80px">
-              <Box
-                position="absolute"
-                inset="0"
-                rounded="full"
-                border="4px solid"
-                borderColor="gray.200"
-              />
-              <Box
-                position="absolute"
-                inset="0"
-                rounded="full"
-                border="4px solid transparent"
-                borderTopColor="gray.500"
-                css={{ animation: "spin 1s linear infinite" }}
-              />
-              <Flex
-                position="absolute"
-                inset="0"
-                align="center"
-                justify="center"
-              >
-                <Icon color="brand.500" boxSize="7">
-                  <IconCar />
-                </Icon>
-              </Flex>
-            </Box>
->>>>>>> origin/main
 
             <View style={styles.textCenter}>
               <Text style={styles.titleText}>Buscando motoristas{dots}</Text>
@@ -169,7 +111,6 @@ export function FindingScreen({ onNavigate }: FindingScreenProps) {
             </View>
 
             {/* Nearby drivers count */}
-<<<<<<< HEAD
             <View style={styles.nearbyInfo}>
               <View style={styles.nearbyIconBg}>
                 <IconCar size={20} color={colors.white} />
@@ -177,33 +118,6 @@ export function FindingScreen({ onNavigate }: FindingScreenProps) {
               <View>
                 <Text style={styles.nearbyTitle}>8 motoristas próximos</Text>
                 <Text style={styles.nearbySub}>
-=======
-            <HStack
-              bg="brand.50"
-              rounded="xl"
-              px="4"
-              py="3"
-              gap="3"
-              w="full"
-            >
-              <Box
-                bg="brand.500"
-                rounded="lg"
-                boxSize="36px"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-              >
-                <Icon color="white" boxSize="5">
-                  <IconCar />
-                </Icon>
-              </Box>
-              <Box>
-                <Text fontSize="sm" fontWeight="semibold" color="brand.700">
-                  8 motoristas próximos
-                </Text>
-                <Text fontSize="xs" color="brand.400">
->>>>>>> origin/main
                   Todos verificados pela UniCarona
                 </Text>
               </View>
@@ -220,22 +134,9 @@ export function FindingScreen({ onNavigate }: FindingScreenProps) {
         ) : (
           <View style={styles.foundView}>
             {/* Found badge */}
-<<<<<<< HEAD
             <View style={styles.foundBadge}>
               <Text style={styles.foundBadgeText}>Motorista encontrado!</Text>
             </View>
-=======
-            <Box
-              bg="green.50"
-              rounded="full"
-              px="4"
-              py="1.5"
-            >
-              <Text fontSize="xs" fontWeight="bold" color="green.600">
-                Motorista encontrado!
-              </Text>
-            </Box>
->>>>>>> origin/main
 
             {/* Driver card */}
             <View style={styles.driverCard}>
@@ -248,18 +149,7 @@ export function FindingScreen({ onNavigate }: FindingScreenProps) {
                     bg={colors.brand[500]}
                   />
                   {foundDriver.verified && (
-<<<<<<< HEAD
                     <View style={styles.verifiedDot} />
-=======
-                    <Box
-                      position="absolute"
-                      bottom="-1"
-                      right="-1"
-                      bg="brand.500"
-                      rounded="full"
-                      p="0.5"
-                    />
->>>>>>> origin/main
                   )}
                 </View>
                 <View style={styles.driverInfo}>
@@ -274,21 +164,10 @@ export function FindingScreen({ onNavigate }: FindingScreenProps) {
                   <Text style={styles.driverUniversity}>
                     {foundDriver.university}
                   </Text>
-<<<<<<< HEAD
                   <View style={styles.ratingRow}>
                     <IconStar size={14} color="#facc15" />
                     <Text style={styles.ratingText}>{foundDriver.rating}</Text>
                     <Text style={styles.totalRidesText}>
-=======
-                  <HStack gap="1" mt="1">
-                    <Icon color="yellow.400" boxSize="3.5">
-                      <IconStar />
-                    </Icon>
-                    <Text fontSize="xs" fontWeight="bold" color="gray.700">
-                      {foundDriver.rating}
-                    </Text>
-                    <Text fontSize="xs" color="gray.400">
->>>>>>> origin/main
                       ({foundDriver.totalRides} corridas)
                     </Text>
                   </View>
@@ -299,7 +178,6 @@ export function FindingScreen({ onNavigate }: FindingScreenProps) {
                 </View>
               </View>
 
-<<<<<<< HEAD
               <View style={styles.carInfo}>
                 <IconCar size={16} color={colors.gray[500]} />
                 <Text style={styles.carText}>
@@ -311,58 +189,15 @@ export function FindingScreen({ onNavigate }: FindingScreenProps) {
                 </View>
               </View>
             </View>
-=======
-              <Box
-                bg="white"
-                rounded="xl"
-                p="3"
-                border="1px solid"
-                borderColor="gray.100"
-              >
-                <HStack gap="2">
-                  <Icon color="gray.500" boxSize="4">
-                    <IconCar />
-                  </Icon>
-                  <Text fontSize="sm" color="gray.700">
-                    {foundDriver.car} {foundDriver.color}
-                  </Text>
-                  <Box flex="1" />
-                  <Box
-                    bg="gray.800"
-                    rounded="md"
-                    px="2.5"
-                    py="1"
-                  >
-                    <Text fontSize="xs" color="white" fontWeight="bold" letterSpacing="wider">
-                      {foundDriver.plate}
-                    </Text>
-                  </Box>
-                </HStack>
-              </Box>
-            </Box>
->>>>>>> origin/main
 
             <Text style={styles.redirectText}>
               Você será redirecionado automaticamente...
             </Text>
 
             {/* Accept button */}
-<<<<<<< HEAD
             <TouchableOpacity
               style={styles.confirmButton}
               onPress={() => onNavigate("active-ride")}
-=======
-            <Box
-              w="full"
-              bg="brand.500"
-              rounded="xl"
-              py="4"
-              textAlign="center"
-              cursor="pointer"
-              onClick={() => onNavigate("active-ride")}
-              _hover={{ bg: "brand.600" }}
-              transition="all 0.2s"
->>>>>>> origin/main
             >
               <Text style={styles.confirmButtonText}>Confirmar carona</Text>
             </TouchableOpacity>

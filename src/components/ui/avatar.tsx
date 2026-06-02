@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import {forwardRef, useState} from 'react';
 import { StyleSheet, View, Text, Image, ViewProps } from 'react-native';
 import { colors } from '@/theme';
 
@@ -19,7 +19,7 @@ const sizeMap = {
   xl: 96,
 };
 
-export const Avatar = React.forwardRef<View, AvatarProps>((props, ref) => {
+export const Avatar = forwardRef<View, AvatarProps>((props, ref) => {
   const { name, src, size = 'md', bg = colors.gray[200], color = colors.white, style, ...rest } = props;
   const dimension = sizeMap[size as keyof typeof sizeMap] || sizeMap.md;
   const [hasError, setHasError] = useState(false);
@@ -33,7 +33,7 @@ export const Avatar = React.forwardRef<View, AvatarProps>((props, ref) => {
         .substring(0, 2)
     : '';
 
-  const showImage = src !== undefined && src !== null && !hasError;
+  const showImage = src !== undefined && src !== null && src !== '' && !hasError;
 
   return (
     <View
@@ -65,7 +65,7 @@ export const Avatar = React.forwardRef<View, AvatarProps>((props, ref) => {
   );
 });
 
-export const AvatarGroup = ({ children }: { children: React.ReactNode }) => {
+export const AvatarGroup = ({ children }: { children: ReactNode }) => {
   return <View style={styles.group}>{children}</View>;
 };
 

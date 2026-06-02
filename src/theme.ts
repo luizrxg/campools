@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export const colors = {
   brand: {
     50: "#eeeef8",
@@ -12,46 +11,6 @@ export const colors = {
     800: "#181836",
     900: "#0f0f22",
     950: "#080811",
-=======
-import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react"
-
-const config = defineConfig({
-  theme: {
-    tokens: {
-      fonts: {
-        body: { value: "'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif" },
-        heading: { value: "'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif" },
-      },
-      colors: {
-        brand: {
-          50:  { value: "#eeeef8" },
-          100: { value: "#d4d4ef" },
-          200: { value: "#aaaadf" },
-          300: { value: "#7e7ecf" },
-          400: { value: "#5555a0" },
-          500: { value: "#353575" },
-          600: { value: "#2b2b60" },
-          700: { value: "#21214a" },
-          800: { value: "#181836" },
-          900: { value: "#0f0f22" },
-          950: { value: "#080811" },
-        },
-      },
-    },
-    semanticTokens: {
-      colors: {
-        brand: {
-          solid:      { value: "{colors.brand.500}" },
-          contrast:   { value: "{colors.brand.50}" },
-          fg:         { value: "{colors.brand.700}" },
-          muted:      { value: "{colors.brand.100}" },
-          subtle:     { value: "{colors.brand.200}" },
-          emphasized: { value: "{colors.brand.300}" },
-          focusRing:  { value: "{colors.brand.500}" },
-        },
-      },
-    },
->>>>>>> origin/main
   },
   gray: {
     50: "#f9fafb",
