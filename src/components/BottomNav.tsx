@@ -1,0 +1,157 @@
+<<<<<<< HEAD
+import React from 'react';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import type { AppScreen, UserMode } from "@/types";
+=======
+import { Box, Flex, Icon, Text } from "@chakra-ui/react"
+import type { AppScreen, UserMode } from "@/types"
+>>>>>>> origin/main
+import {
+  IconHome,
+  IconHomeFilled,
+  IconCar,
+  IconCarFilled,
+  IconUser,
+  IconUserFilled,
+<<<<<<< HEAD
+} from "@tabler/icons-react-native";
+import { colors } from "@/theme";
+=======
+} from "@tabler/icons-react"
+>>>>>>> origin/main
+
+interface BottomNavProps {
+  screen: AppScreen;
+  mode: UserMode;
+  onNavigate: (screen: AppScreen) => void;
+}
+
+const passengerTabs = [
+  { screen: "home" as AppScreen, icon: IconHome, iconActive: IconHomeFilled, label: "Início" },
+  { screen: "request" as AppScreen, icon: IconCar, iconActive: IconCarFilled, label: "Carona" },
+  { screen: "profile" as AppScreen, icon: IconUser, iconActive: IconUserFilled, label: "Perfil" },
+<<<<<<< HEAD
+];
+=======
+]
+>>>>>>> origin/main
+
+const driverTabs = [
+  { screen: "driver-home" as AppScreen, icon: IconCar, iconActive: IconCarFilled, label: "Corridas" },
+  { screen: "profile" as AppScreen, icon: IconUser, iconActive: IconUserFilled, label: "Perfil" },
+<<<<<<< HEAD
+];
+=======
+]
+>>>>>>> origin/main
+
+const hiddenScreens: AppScreen[] = ["finding", "active-ride"];
+
+export function BottomNav({ screen, mode, onNavigate }: BottomNavProps) {
+  if (hiddenScreens.includes(screen)) return null;
+
+  const tabs = mode === "driver" ? driverTabs : passengerTabs;
+  const activeScreen = screen === "driver-active" ? "driver-home" : screen;
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.flexRow}>
+        {tabs.map((tab) => {
+<<<<<<< HEAD
+          const isActive = activeScreen === tab.screen;
+          const TabIcon = isActive ? tab.iconActive : tab.icon;
+=======
+          const isActive = activeScreen === tab.screen
+          const TabIcon = isActive ? tab.iconActive : tab.icon
+>>>>>>> origin/main
+          return (
+            <TouchableOpacity
+              key={tab.screen}
+              style={styles.tab}
+              activeOpacity={0.7}
+              onPress={() => onNavigate(tab.screen)}
+            >
+<<<<<<< HEAD
+              {isActive && <View style={styles.activeIndicator} />}
+              <TabIcon
+                size={24}
+                color={isActive ? colors.brand[500] : colors.gray[400]}
+              />
+=======
+              {isActive && (
+                <Box
+                  position="absolute"
+                  top="0"
+                  left="50%"
+                  transform="translateX(-50%)"
+                  w="20px"
+                  h="2px"
+                  bg="brand.500"
+                  rounded="full"
+                />
+              )}
+              <Icon
+                boxSize="5"
+                color={isActive ? "brand.500" : "gray.400"}
+                transition="color 0.15s"
+              >
+                <TabIcon />
+              </Icon>
+>>>>>>> origin/main
+              <Text
+                style={[
+                  styles.label,
+                  {
+                    color: isActive ? colors.brand[500] : colors.gray[400],
+                    fontWeight: isActive ? "700" : "500",
+                  },
+                ]}
+              >
+                {tab.label}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
+<<<<<<< HEAD
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.white,
+    borderTopWidth: 1,
+    borderTopColor: colors.gray[100],
+    paddingHorizontal: 8,
+    paddingBottom: 20, // Simulando safe area bottom se necessário
+  },
+  flexRow: {
+    flexDirection: 'row',
+  },
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+    paddingVertical: 12,
+    position: 'relative',
+  },
+  activeIndicator: {
+    position: 'absolute',
+    top: 0,
+    width: 20,
+    height: 2,
+    backgroundColor: colors.brand[500],
+    borderBottomLeftRadius: 2,
+    borderBottomRightRadius: 2,
+  },
+  label: {
+    fontSize: 10,
+    marginTop: 4,
+  },
+});
+=======
+      </Flex>
+    </Box>
+  )
+}
+>>>>>>> origin/main
