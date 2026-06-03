@@ -1,4 +1,4 @@
-import {forwardRef, useState} from 'react';
+import {forwardRef, type ReactNode} from 'react';
 import { StyleSheet, View, Text, Image, ViewProps } from 'react-native';
 import { colors } from '@/theme';
 
@@ -22,7 +22,6 @@ const sizeMap = {
 export const Avatar = forwardRef<View, AvatarProps>((props, ref) => {
   const { name, src, size = 'md', bg = colors.gray[200], color = colors.white, style, ...rest } = props;
   const dimension = sizeMap[size as keyof typeof sizeMap] || sizeMap.md;
-  const [hasError, setHasError] = useState(false);
 
   const initials = name
     ? name
@@ -33,7 +32,7 @@ export const Avatar = forwardRef<View, AvatarProps>((props, ref) => {
         .substring(0, 2)
     : '';
 
-  const showImage = src !== undefined && src !== null && src !== '' && !hasError;
+  const imageSource = typeof src === 'string' ? { uri: src } : src;
 
   return (
     <View
@@ -50,17 +49,18 @@ export const Avatar = forwardRef<View, AvatarProps>((props, ref) => {
       ]}
       {...rest}
     >
-      {showImage ? (
+      <Text style={[styles.text, { color, fontSize: dimension / 2.5 }]}>
+        {initials}
+      </Text>
+      {src ? (
         <Image
-          source={typeof src === 'string' ? { uri: src } : src}
-          style={{ width: dimension, height: dimension, borderRadius: dimension / 2 }}
-          onError={() => setHasError(true)}
+          source={imageSource}
+          style={[
+            StyleSheet.absoluteFill,
+            { width: dimension, height: dimension, borderRadius: dimension / 2 }
+          ]}
         />
-      ) : (
-        <Text style={[styles.text, { color, fontSize: dimension / 2.5 }]}>
-          {initials}
-        </Text>
-      )}
+      ) : null}
     </View>
   );
 });

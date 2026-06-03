@@ -72,9 +72,7 @@ export function ProfileScreen({ onNavigate, mode }: ProfileScreenProps) {
             </View>
           </View>
         </View>
-      </View>
 
-      <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
         {/* Stats card */}
         <View style={styles.statsCard}>
           <View style={styles.statsRow}>
@@ -107,6 +105,9 @@ export function ProfileScreen({ onNavigate, mode }: ProfileScreenProps) {
             </View>
           </View>
         </View>
+      </View>
+
+      <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
 
         <View style={styles.mainContent}>
           {/* Recent rides */}
@@ -196,6 +197,7 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingBottom: 60,
     paddingHorizontal: 20,
+    zIndex: 10,
   },
   headerTitleRow: {
     marginBottom: 16,
@@ -265,25 +267,27 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     flex: 1,
+    paddingTop: 40,
   },
   statsCard: {
     marginHorizontal: 20,
     backgroundColor: colors.white,
     borderRadius: 16,
-    padding: 16,
-    marginTop: -40,
-    borderWidth: 1,
-    borderColor: colors.gray[100],
+    width: "100%",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 8,
-    elevation: 2,
+    elevation: 1,
+    position: "absolute",
+    bottom: -40,
   },
   statsRow: {
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
+    width: "100%",
+    padding: 16,
   },
   statItem: {
     alignItems: "center",
@@ -424,6 +428,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 12,
+    marginBottom: 40
   },
   logoutText: {
     fontSize: 14,

@@ -44,6 +44,7 @@ export interface Passenger {
   pickup: string
   destination: string
   status: "waiting" | "in-car" | "dropped-off"
+  avatarUrl?: any
 }
 
 export interface Location {
