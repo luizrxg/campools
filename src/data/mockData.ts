@@ -16,7 +16,7 @@ export const currentUser: User = {
   rating: 4.9,
   totalRides: 47,
   verified: true,
-  avatarUrl: require("../assets/user.jpg"),
+  avatarUrl: require("../assets/female.jpg"),
 }
 
 export const currentDriverUser: User = {
@@ -28,7 +28,7 @@ export const currentDriverUser: User = {
   rating: 4.8,
   totalRides: 120,
   verified: true,
-  avatarUrl: require("../assets/driver.jpg"),
+  avatarUrl: require("../assets/male.jpg"),
 }
 
 export const popularLocations: Location[] = [
@@ -94,7 +94,7 @@ export const mockDriver: Driver = {
   plate: "ABC-1D23",
   verified: true,
   eta: 4,
-  avatarUrl: require("../assets/driver.jpg"),
+  avatarUrl: require("../assets/male.jpg"),
 }
 
 export const mockDriver2: Driver = {
@@ -109,7 +109,7 @@ export const mockDriver2: Driver = {
   plate: "XYZ-9A87",
   verified: true,
   eta: 7,
-  avatarUrl: require("../assets/driver.jpg"),
+  avatarUrl: require("../assets/female.jpg"),
 }
 
 export const mockActiveRide: ActiveRide = {
@@ -125,7 +125,7 @@ export const mockActiveRide: ActiveRide = {
       pickup: "Terminal Central",
       destination: "UFU - Campus Santa Monica",
       status: "in-car",
-      avatarUrl: require("../assets/user.jpg"),
+      avatarUrl: require("../assets/male.jpg"),
     },
     {
       id: "p2",
@@ -134,7 +134,7 @@ export const mockActiveRide: ActiveRide = {
       pickup: "Uberlandia Shopping",
       destination: "UFU - Campus Umuarama",
       status: "waiting",
-      avatarUrl: require("../assets/user.jpg"),
+      avatarUrl: require("../assets/female.jpg"),
     },
   ],
   status: "driver-coming",
@@ -211,7 +211,7 @@ export const driverPendingRequests: DriverRequest[] = [
       pickup: "Terminal Central",
       destination: "UFU - Campus Santa Monica",
       status: "waiting",
-      avatarUrl: require("../assets/user.jpg"),
+      avatarUrl: require("../assets/female.jpg"),
     },
     pickup: popularLocations[3],
     destination: popularLocations[0],
@@ -227,7 +227,7 @@ export const driverPendingRequests: DriverRequest[] = [
       pickup: "Uberlandia Shopping",
       destination: "UFU - Campus Umuarama",
       status: "waiting",
-      avatarUrl: require("../assets/user.jpg"),
+      avatarUrl: require("../assets/female.jpg"),
     },
     pickup: popularLocations[5],
     destination: popularLocations[1],
@@ -244,7 +244,7 @@ export const driverActivePassengers = [
     pickup: "Terminal Central",
     destination: "UFU - Campus Santa Monica",
     status: "in-car" as const,
-    avatarUrl: require("../assets/user.jpg"),
+    avatarUrl: require("../assets/female.jpg"),
   },
   {
     id: "p6",
@@ -253,6 +253,6 @@ export const driverActivePassengers = [
     pickup: "Terminal Central",
     destination: "UFU - Campus Umuarama",
     status: "waiting" as const,
-    avatarUrl: require("../assets/user.jpg"),
+    avatarUrl: require("../assets/female.jpg"),
   },
 ]
