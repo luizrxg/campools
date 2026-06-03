@@ -78,7 +78,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: colors.gray[100],
     paddingHorizontal: 8,
-    paddingBottom: 20, // Simulando safe area bottom se necessário
   },
   flexRow: {
     flexDirection: 'row',

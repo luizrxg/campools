@@ -14,7 +14,6 @@ const BRAND_LIGHT = "#7e7ecf";
 
 export function MapSimulation({ variant = "idle", height = 240 }: MapSimulationProps) {
   const [carPos, setCarPos] = useState({ x: 60, y: 80 });
-  const animRef = useRef<number | null>(null);
   const pulseAnim = useRef(new Animated.Value(0)).current;
 
   const pickupPos = { x: 180, y: 200 };
@@ -54,7 +53,7 @@ export function MapSimulation({ variant = "idle", height = 240 }: MapSimulationP
     let progress = 0;
 
     const animate = () => {
-      progress += 0.004;
+      progress += 0.016;
       if (progress > 1) progress = 0;
 
       const t = progress;
@@ -77,7 +76,7 @@ export function MapSimulation({ variant = "idle", height = 240 }: MapSimulationP
 
   return (
     <View style={[styles.container, { height: typeof height === 'string' ? parseInt(height) : height }]}>
-      <Svg width="100%" height="100%" viewBox="0 0 390 280">
+      <Svg width="100%" height="100%" viewBox="0 0 390 280" preserveAspectRatio="xMidYMid slice">
         {/* Background */}
         <Rect width="390" height="280" fill="#e8eff7" />
 

@@ -55,7 +55,6 @@ export function ProfileScreen({ onNavigate, mode }: ProfileScreenProps) {
               src={user.avatarUrl}
               bg={colors.brand[300]}
             />
-            {user.verified && <View style={styles.verifiedDot} />}
           </View>
           <View style={styles.userInfo}>
             <Text style={styles.userName}>{user.name}</Text>
